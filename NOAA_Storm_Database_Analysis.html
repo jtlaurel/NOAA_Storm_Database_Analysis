@@ -474,7 +474,7 @@ cropdmgsort$CROPDMG &lt;- cropdmgsort$CROPDMG / 1000000000</code></pre>
 <h2>Results</h2>
 <div id="plotting" class="section level4">
 <h4>Plotting</h4>
-<p>We are now ready to plot the results using <code>gplot</code>. We used <code>geom_col</code> to represent the magnitude of each event type. Our first figure will compare event types with respect to population health. Plots for “FATALITIES” and “INJURIES” are constructed below:</p>
+<p>We are now ready to plot the results using <code>ggplot</code>. We used <code>geom_col</code> to represent the magnitude of each event type. Our first figure will compare event types with respect to population health. Plots for “FATALITIES” and “INJURIES” are constructed below:</p>
 <pre class="r"><code>fatalityplot &lt;- ggplot(fatalitysort, aes(EVTYPE, FATALITIES)) +
   geom_col(fill = &quot;#CC6666&quot;) +
   ggtitle(&quot;Events Causing Highest Fatalities&quot;) +

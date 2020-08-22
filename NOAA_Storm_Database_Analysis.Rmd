@@ -112,7 +112,7 @@ Our aggregated top 10 event types for "FATALITIES", "INJURIES", "PROPDMG", and "
 ## Results
 
 #### Plotting
-We are now ready to plot the results using ```gplot```. We used ```geom_col``` to represent the magnitude of each event type. Our first figure will compare event types with respect to population health. Plots for "FATALITIES" and "INJURIES" are constructed below:
+We are now ready to plot the results using ```ggplot```. We used ```geom_col``` to represent the magnitude of each event type. Our first figure will compare event types with respect to population health. Plots for "FATALITIES" and "INJURIES" are constructed below:
 
 ```{r, echo=TRUE}
 fatalityplot <- ggplot(fatalitysort, aes(EVTYPE, FATALITIES)) +
