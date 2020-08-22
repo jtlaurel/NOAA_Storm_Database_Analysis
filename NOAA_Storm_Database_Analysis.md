@@ -181,7 +181,7 @@ Results
 
 #### Plotting
 
-We are now ready to plot the results using `gplot`. We used `geom_col`
+We are now ready to plot the results using `ggplot`. We used `geom_col`
 to represent the magnitude of each event type. Our first figure will
 compare event types with respect to population health. Plots for
 “FATALITIES” and “INJURIES” are constructed below:
