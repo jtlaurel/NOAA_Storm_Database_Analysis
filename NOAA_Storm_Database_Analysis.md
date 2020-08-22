@@ -58,11 +58,13 @@ R using the `read.csv` command.
 #### Subsetting Data
 
 We then subset the data into two separate data frames which will be used
-for further analysis. Our aim is to answer the two questions: 1) Across
-the United States, which types of events (as indicated in the EVTYPE
-variable) are most harmful with respect to population health? 2) Across
-the United States, which types of events have the greatest economic
-consequences?
+for further analysis. Our aim is to answer the two questions:
+
+1.  Across the United States, which types of events (as indicated in the
+    EVTYPE variable) are most harmful with respect to population health?
+
+2.  Across the United States, which types of events have the greatest
+    economic consequences?
 
 Our first data frame will address the the question concerning population
 health. We will subset the data to focus on the “FATALITIES” and
@@ -106,7 +108,7 @@ the Top 10 event types for each below:
     injurysort <- injurytop10[order(injurytop10$INJURIES, decreasing = T),]
 
 Before we make same transformation for “PROPDMG” and “CROPDMG”, we have
-the consider that “PROPDMGEXP” and “CROPDMGEXP” contains vital
+to consider that “PROPDMGEXP” and “CROPDMGEXP” contains vital
 information surrounding the magnitude of the previous variable. `K`
 denotes one thousand, `M` denotes one million, and `B` denotes one
 billion. We replace these variables with their numerical counterparts to
