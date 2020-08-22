@@ -98,7 +98,7 @@ cropdmgsort <- cropdmgtop10[order(cropdmgtop10$CROPDMG, decreasing = T),]
 head(cropdmgsort)
 ```
 
-Noticing that the damage values are intoo the billions, we apply one last transformation to the data to make for easier-to-read plots in the future.
+Noticing that the damage values are into the billions, we apply one last transformation to the data to make for easier-to-read plots in the future.
 
 ```{r, echo=TRUE}
 propdmgsort$PROPDMG <- propdmgsort$PROPDMG / 1000000000
