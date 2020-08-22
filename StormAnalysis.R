@@ -53,7 +53,7 @@ propdmgsort <- propdmgtop10[order(propdmgtop10$PROPDMG, decreasing = T),]
 damagedata$CROPDMGEXP[damagedata$CROPDMGEXP == "0"] <- 0
 damagedata$CROPDMGEXP[damagedata$CROPDMGEXP == "K"] <- 1000
 damagedata$CROPDMGEXP[damagedata$CROPDMGEXP == "M"] <- 1000000
-damagedata$PROPDMGEXP[damagedata$PROPDMGEXP == "B"] <- 1000000000
+damagedata$CROPDMGEXP[damagedata$PROPDMGEXP == "B"] <- 1000000000
 
 damagedata$CROPDMG <- damagedata$CROPDMG * as.numeric(damagedata$CROPDMGEXP)
 damagedata$CROPDMG <- damagedata$CROPDMG / 1000000000
@@ -66,7 +66,7 @@ propdmgplot <- ggplot(propdmgsort, aes(EVTYPE, PROPDMG)) +
   geom_col(fill = "#9999CC") +
   ggtitle("Events Causing Most Property Damage") +
   xlab("Event Type") +
-  ylab("Property Damage in Billions") +
+  ylab("Property Damage in Billions of $") +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
   scale_x_discrete(limits=propdmgsort$EVTYPE)
@@ -75,7 +75,7 @@ cropdmgplot <- ggplot(cropdmgsort, aes(EVTYPE, CROPDMG)) +
   geom_col(fill = "#FF9666") +
   ggtitle("Events Causing Most Crop Damage") +
   xlab("Event Type") +
-  ylab("Crop Damage in Billions") +
+  ylab("Crop Damage in Billions of $") +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
   scale_x_discrete(limits=cropdmgsort$EVTYPE)
