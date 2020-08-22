@@ -403,7 +403,11 @@ library(gridExtra)</code></pre>
 </div>
 <div id="subsetting-data" class="section level4">
 <h4>Subsetting Data</h4>
-<p>We then subset the data into two separate data frames which will be used for further analysis. Our aim is to answer the two questions: 1) Across the United States, which types of events (as indicated in the EVTYPE variable) are most harmful with respect to population health? 2) Across the United States, which types of events have the greatest economic consequences?</p>
+<p>We then subset the data into two separate data frames which will be used for further analysis. Our aim is to answer the two questions:</p>
+<ol style="list-style-type: decimal">
+<li><p>Across the United States, which types of events (as indicated in the EVTYPE variable) are most harmful with respect to population health?</p></li>
+<li><p>Across the United States, which types of events have the greatest economic consequences?</p></li>
+</ol>
 <p>Our first data frame will address the the question concerning population health. We will subset the data to focus on the “FATALITIES” and “INJURIES” variables to find which severe weather event type most negatively affects the population.</p>
 <pre class="r"><code>health &lt;- c(&quot;EVTYPE&quot;, &quot;FATALITIES&quot;, &quot;INJURIES&quot;)
 healthdata &lt;- stormdata[health]</code></pre>
@@ -422,7 +426,7 @@ fatalitysort &lt;- fatalitytop10[order(fatalitytop10$FATALITIES, decreasing = T)
 injurydata &lt;- aggregate(INJURIES ~ EVTYPE, healthdata, sum)
 injurytop10 &lt;- top_n(injurydata, 10, INJURIES)
 injurysort &lt;- injurytop10[order(injurytop10$INJURIES, decreasing = T),]</code></pre>
-<p>Before we make same transformation for “PROPDMG” and “CROPDMG”, we have the consider that “PROPDMGEXP” and “CROPDMGEXP” contains vital information surrounding the magnitude of the previous variable. <code>K</code> denotes one thousand, <code>M</code> denotes one million, and <code>B</code> denotes one billion. We replace these variables with their numerical counterparts to allow for easier data manipulation.</p>
+<p>Before we make same transformation for “PROPDMG” and “CROPDMG”, we have to consider that “PROPDMGEXP” and “CROPDMGEXP” contains vital information surrounding the magnitude of the previous variable. <code>K</code> denotes one thousand, <code>M</code> denotes one million, and <code>B</code> denotes one billion. We replace these variables with their numerical counterparts to allow for easier data manipulation.</p>
 <pre class="r"><code>damagedata$PROPDMGEXP[damagedata$PROPDMGEXP == &quot;0&quot;] &lt;- 0
 damagedata$PROPDMGEXP[damagedata$PROPDMGEXP == &quot;K&quot;] &lt;- 1000
 damagedata$PROPDMGEXP[damagedata$PROPDMGEXP == &quot;M&quot;] &lt;- 1000000
